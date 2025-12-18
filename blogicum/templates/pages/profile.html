@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Профиль пользователя {{ profile_user.username }}</h1>
+
+<p>Имя: {{ profile_user.first_name }}</p>
+<p>Фамилия: {{ profile_user.last_name }}</p>
+<p>Email: {{ profile_user.email }}</p>
+
+{% if user.is_authenticated and user == profile_user %}
+    <p>
+        <a href="{% url 'password_change' %}">Изменить пароль</a>
+    </p>
+{% endif %}
+{% endblock %}
